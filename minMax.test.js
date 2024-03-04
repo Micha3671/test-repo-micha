@@ -14,6 +14,6 @@ test("min function returns the smaller value between two numbers", () => {
 test("max function returns the larger value between two numbers", () => {
   expect(max(3, 7)).toBe(7); // Test mit positiven Zahlen
   expect(max(-3, -7)).toBe(-3); // Test mit negativen Zahlen
-  expect(max(-5, 10)).toBe(10); // Test Test mit negativen und positiven Zahlen
+  expect(max(-5, 10)).toBe(10); // Test mit negativen und positiven Zahlen
   expect(max(0, 0)).toBe(0); // Test mit gleichen Zahlen
 });
