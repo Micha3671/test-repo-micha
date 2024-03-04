@@ -2,12 +2,20 @@
 
 // min(a, b) : gibt den kleineren Wert (also a oder b) zurück
 function min(a, b) {
-  return a < b ? a : b;
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
 }
 
 // max(a, b) : gibt den größeren Wert (also a oder b) zurück
 function max(a, b) {
-  return a > b ? a : b;
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
 }
 
 // Exportieren der Funktionen
