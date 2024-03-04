@@ -4,8 +4,11 @@
 function min(a, b) {
   if (a < b) {
     return a;
-  } else {
+  } else if (a > b) {
     return b;
+  } else {
+    // a und b sind gleich
+    return a; // oder return b;
   }
 }
 
@@ -13,8 +16,11 @@ function min(a, b) {
 function max(a, b) {
   if (a > b) {
     return a;
-  } else {
+  } else if (a < b) {
     return b;
+  } else {
+    // a und b sind gleich
+    return a; // oder return b;
   }
 }
 
