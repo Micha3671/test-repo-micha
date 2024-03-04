@@ -35,3 +35,57 @@ test("Negativ durch negative Zahl ist größer als 0", () => {
 
   expect(result).toBeGreaterThan(0);
 });
+
+// Hausaufgabe 1
+
+// Test der subtract-Funktion
+
+// Test: Beide Zahlen sind positiv
+test("Beide Zahlen sind positiv", () => {
+  const result = calculator.subtract(5, 3);
+  expect(result).toEqual(2);
+});
+
+// Test: Eine Zahl ist negativ (a negativ)
+test("Eine Zahl ist negativ (a negativ)", () => {
+  const result = calculator.subtract(-5, 3);
+  expect(result).toEqual(-8);
+});
+
+// Test: Eine Zahl ist negativ (b negativ)
+test("Eine Zahl ist negativ (b negativ)", () => {
+  const result = calculator.subtract(5, -3);
+  expect(result).toEqual(8);
+});
+
+// Test: Eine Zahl ist 0
+test("Eine Zahl ist 0", () => {
+  const result = calculator.subtract(0, 5);
+  expect(result).toEqual(-5);
+});
+
+// Test der multiply-Funktion
+
+// Test: Beide Zahlen sind positiv
+test("Beide Zahlen sind positiv", () => {
+  const result = calculator.multiply(5, 3);
+  expect(result).toEqual(15);
+});
+
+// Test: Eine Zahl ist negativ (a negativ)
+test("Eine Zahl ist negativ (a negativ)", () => {
+  const result = calculator.multiply(-5, 3);
+  expect(result).toEqual(-15);
+});
+
+// Test: Eine Zahl ist negativ (b negativ)
+test("Eine Zahl ist negativ (b negativ)", () => {
+  const result = calculator.multiply(5, -3);
+  expect(result).toEqual(-15);
+});
+
+// Test: Eine Zahl ist 0
+test("Eine Zahl ist 0", () => {
+  const result = calculator.multiply(0, 5);
+  expect(result).toEqual(0);
+});
