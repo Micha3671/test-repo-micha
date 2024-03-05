@@ -1,19 +1,103 @@
-// Hausaufgabe 2
-
 const { min, max } = require("./minMax");
 
-// Test der min-Funktion
-test("Die Funktion min gibt den kleineren Wert zwischen zwei Zahlen zurück", () => {
-  expect(min(3, 7)).toBe(3); // Test mit positiven Zahlen
-  expect(min(-3, -7)).toBe(-7); // Test mit negativen Zahlen
-  expect(min(-5, 10)).toBe(-5); // Test mit negativen und positiven Zahlen
-  expect(min(0, 0)).toBe(0); // Test mit gleichen Zahlen
-});
+describe("Min and Max Functions", () => {
+  describe("min Function", () => {
+    test("soll den kleineren Wert zwischen zwei Zahlen zurückgeben", () => {
+      // Arrange
+      const a = 3;
+      const b = 7;
 
-// Test der max-Funktion
-test("Die Funktion max gibt den größeren Wert zwischen zwei Zahlen zurück", () => {
-  expect(max(3, 7)).toBe(7); // Test mit positiven Zahlen
-  expect(max(-3, -7)).toBe(-3); // Test mit negativen Zahlen
-  expect(max(-5, 10)).toBe(10); // Test mit negativen und positiven Zahlen
-  expect(max(0, 0)).toBe(0); // Test mit gleichen Zahlen
+      // Act
+      const result = min(a, b);
+
+      // Assert
+      expect(result).toBe(a);
+    });
+
+    test("soll den kleineren Wert zwischen zwei negativen Zahlen zurückgeben", () => {
+      // Arrange
+      const a = -3;
+      const b = -7;
+
+      // Act
+      const result = min(a, b);
+
+      // Assert
+      expect(result).toBe(b);
+    });
+
+    test("soll den kleineren Wert zwischen einer negativen und einer positiven Zahl zurückgeben", () => {
+      // Arrange
+      const a = -5;
+      const b = 10;
+
+      // Act
+      const result = min(a, b);
+
+      // Assert
+      expect(result).toBe(a);
+    });
+
+    test("soll den kleineren Wert zurückgeben, wenn beide Zahlen gleich sind", () => {
+      // Arrange
+      const a = 0;
+      const b = 0;
+
+      // Act
+      const result = min(a, b);
+
+      // Assert
+      expect(result).toBe(a);
+    });
+  });
+
+  describe("max Function", () => {
+    test("soll den größeren Wert zwischen zwei Zahlen zurückgeben", () => {
+      // Arrange
+      const a = 3;
+      const b = 7;
+
+      // Act
+      const result = max(a, b);
+
+      // Assert
+      expect(result).toBe(b);
+    });
+
+    test("soll den größeren Wert zwischen zwei negativen Zahlen zurückgeben", () => {
+      // Arrange
+      const a = -3;
+      const b = -7;
+
+      // Act
+      const result = max(a, b);
+
+      // Assert
+      expect(result).toBe(a);
+    });
+
+    test("soll den größeren Wert zwischen einer negativen und einer positiven Zahl zurückgeben", () => {
+      // Arrange
+      const a = -5;
+      const b = 10;
+
+      // Act
+      const result = max(a, b);
+
+      // Assert
+      expect(result).toBe(b);
+    });
+
+    test("soll den größeren Wert zurückgeben, wenn beide Zahlen gleich sind", () => {
+      // Arrange
+      const a = 0;
+      const b = 0;
+
+      // Act
+      const result = max(a, b);
+
+      // Assert
+      expect(result).toBe(a);
+    });
+  });
 });
