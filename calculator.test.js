@@ -1,91 +1,123 @@
 const calculator = require("./calculator");
 
-test("Die Summe von 2 + 5 ist 7", () => {
-  const result = calculator.sum(2, 5);
+describe("Calculator Tests", () => {
+  describe("Sum Function", () => {
+    test("soll die Summe von zwei positiven Zahlen zurückgeben", () => {
+      // Arrange
+      // Act
+      const result = calculator.sum(2, 5);
+      // Assert
+      expect(result).toEqual(7);
+    });
 
-  expect(result).toEqual(7);
-});
+    test("soll einen String und eine Zahl verketten", () => {
+      // Arrange
+      // Act
+      const result = calculator.sum("Apfel", 5);
+      // Assert
+      expect(result).toEqual("Apfel5");
+    });
+  });
 
-test('Die Summe von "Apfel" + 5 ist "Apfel5"', () => {
-  const result = calculator.sum("Apfel", 5);
+  describe("Divide Function", () => {
+    test("soll den Quotienten von zwei positiven Zahlen zurückgeben", () => {
+      // Arrange
+      // Act
+      const result = calculator.divide(10, 2);
+      // Assert
+      expect(result).toEqual(5);
+    });
 
-  expect(result).toEqual("Apfel5");
-});
+    test("soll den Quotienten von zwei Zahlen mit Genauigkeit zurückgeben", () => {
+      // Arrange
+      // Act
+      const result = calculator.divide(10, 3);
+      // Assert
+      expect(result).toBeCloseTo(3.33, 2);
+    });
 
-test("Der Quotient aus 10 durch 2 ist 5", () => {
-  const result = calculator.divide(10, 2);
+    test("soll ein negatives Ergebnis zurückgeben, wenn eine positive Zahl durch eine negative Zahl dividiert wird", () => {
+      // Arrange
+      // Act
+      const result = calculator.divide(10, -2);
+      // Assert
+      expect(result).toBeLessThan(0);
+    });
 
-  expect(result).toEqual(5);
-});
+    test("soll ein positives Ergebnis zurückgeben, wenn zwei negative Zahlen dividiert werden", () => {
+      // Arrange
+      // Act
+      const result = calculator.divide(-10, -2);
+      // Assert
+      expect(result).toBeGreaterThan(0);
+    });
+  });
 
-test("Der Quotient aus 10 durch 3 ist nahe an 3,33", () => {
-  const result = calculator.divide(10, 3);
+  describe("Subtract Function", () => {
+    test("soll die Differenz zweier positiver Zahlen zurückgeben", () => {
+      // Arrange
+      // Act
+      const result = calculator.subtract(5, 3);
+      // Assert
+      expect(result).toEqual(2);
+    });
 
-  expect(result).toBeCloseTo(3.33, 2);
-});
+    test("soll die Differenz zurückgeben, wenn eine Zahl negativ ist (a negativ)", () => {
+      // Arrange
+      // Act
+      const result = calculator.subtract(-5, 3);
+      // Assert
+      expect(result).toEqual(-8);
+    });
 
-test("Postive durch negative Zahl ist kleiner als 0", () => {
-  const result = calculator.divide(10, -2);
+    test("soll die Differenz zurückgeben, wenn eine Zahl negativ ist (b negativ)", () => {
+      // Arrange
+      // Act
+      const result = calculator.subtract(5, -3);
+      // Assert
+      expect(result).toEqual(8);
+    });
 
-  expect(result).toBeLessThan(0);
-});
+    test("soll die negative Zahl zurückgeben, wenn von Null subtrahiert wird", () => {
+      // Arrange
+      // Act
+      const result = calculator.subtract(0, 5);
+      // Assert
+      expect(result).toEqual(-5);
+    });
+  });
 
-test("Negativ durch negative Zahl ist größer als 0", () => {
-  const result = calculator.divide(-10, -2);
+  describe("Multiply Function", () => {
+    test("soll das Ergebnis von zwei positiven Zahlen zurückgeben", () => {
+      // Arrange
+      // Act
+      const result = calculator.multiply(5, 3);
+      // Assert
+      expect(result).toEqual(15);
+    });
 
-  expect(result).toBeGreaterThan(0);
-});
+    test("soll das Ergebnis zurückgeben, wenn eine Zahl negativ ist (a negativ)", () => {
+      // Arrange
+      // Act
+      const result = calculator.multiply(-5, 3);
+      // Assert
+      expect(result).toEqual(-15);
+    });
 
-// Hausaufgabe 1
+    test("soll das Ergebnis zurückgeben, wenn eine Zahl negativ ist (b negativ)", () => {
+      // Arrange
+      // Act
+      const result = calculator.multiply(5, -3);
+      // Assert
+      expect(result).toEqual(-15);
+    });
 
-// Test der subtract-Funktion
-
-// Test: Beide Zahlen sind positiv
-test("Beide Zahlen sind positiv", () => {
-  const result = calculator.subtract(5, 3);
-  expect(result).toEqual(2);
-});
-
-// Test: Eine Zahl ist negativ (a negativ)
-test("Eine Zahl ist negativ (a negativ)", () => {
-  const result = calculator.subtract(-5, 3);
-  expect(result).toEqual(-8);
-});
-
-// Test: Eine Zahl ist negativ (b negativ)
-test("Eine Zahl ist negativ (b negativ)", () => {
-  const result = calculator.subtract(5, -3);
-  expect(result).toEqual(8);
-});
-
-// Test: Eine Zahl ist 0
-test("Eine Zahl ist 0", () => {
-  const result = calculator.subtract(0, 5);
-  expect(result).toEqual(-5);
-});
-
-// Test der multiply-Funktion
-
-// Test: Beide Zahlen sind positiv
-test("Beide Zahlen sind positiv", () => {
-  const result = calculator.multiply(5, 3);
-  expect(result).toEqual(15);
-});
-
-// Test: Eine Zahl ist negativ (a negativ)
-test("Eine Zahl ist negativ (a negativ)", () => {
-  const result = calculator.multiply(-5, 3);
-  expect(result).toEqual(-15);
-});
-
-// Test: Eine Zahl ist negativ (b negativ)
-test("Eine Zahl ist negativ (b negativ)", () => {
-  const result = calculator.multiply(5, -3);
-  expect(result).toEqual(-15);
-});
-
-// Test: Eine Zahl ist 0
-test("Eine Zahl ist 0", () => {
-  const result = calculator.multiply(0, 5);
-  expect(result).toEqual(0);
+    test("soll Null zurückgeben, wenn mit Null multipliziert wird", () => {
+      // Arrange
+      // Act
+      const result = calculator.multiply(0, 5);
+      // Assert
+      expect(result).toEqual(0);
+    });
+  });
 });
