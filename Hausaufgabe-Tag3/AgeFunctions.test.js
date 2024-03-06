@@ -14,12 +14,13 @@ describe("Tests for isAdult Function", () => {
     expect(isAdult(0)).toBe(false);
   });
 
-  test("Test for age being less than 18", () => {
+  test("Test for age being between 1 and 17", () => {
+    expect(isAdult(1)).toBe(false);
+    expect(isAdult(10)).toBe(false);
     expect(isAdult(17)).toBe(false);
   });
 
-  test("Test for age being greater than or equal to 18", () => {
-    expect(isAdult(18)).toBe(true);
+  test("Test for age being greater than 18", () => {
     expect(isAdult(19)).toBe(true);
     expect(isAdult(100)).toBe(true);
   });
