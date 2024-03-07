@@ -1,4 +1,4 @@
-const { addNumbers, divideNrs } = require("./Testtag3/MyMathFunctions");
+const { addNumbers, divideNrs } = require("./MyMathFunctions");
 
 describe("Test Basic Math Add Functions", () => {
   test("Basic Add Function to pass with Basic input", () => {
